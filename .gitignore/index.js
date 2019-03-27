@@ -5,29 +5,29 @@ const client = new Discord.Client();
 const config = require("./config.json");
 
 client.on("ready", () => {
-  console.log(Cupidon BOT Online :D); 
-  client.user.setActivity(Weeblyz#1948);
+  console.log(`Cupidon BOT Online :D`); 
+  client.user.setActivity(`Weeblyz#1948`);
 });
 
 client.on("guildCreate", guild => {
-  console.log(J'ai rejoind: ${guild.name} (id: ${guild.id}).);
+  console.log(`J'ai rejoind: ${guild.name} (id: ${guild.id}).`);
 });
 
 client.on("guildDelete", guild => {
-  console.log(On m'as supprimé de: ${guild.name} (id: ${guild.id}));
+  console.log(`On m'as supprimé de: ${guild.name} (id: ${guild.id})`);
 });
 
 
 client.on("message", async message => {
-
+	
   if(message.author.bot) return;
   if(message.content.indexOf(config.prefix) !== 0) return;
-
+  
   let command = message.content.split(" ")[0];
   const args = message.content.slice(config.prefix.length).trim().split(/ +/);
   command = args.shift().toLowerCase();
-
-
+  
+  
   if(command === "check") {
     let fonda = message.guild.roles.get("549612461435912212");
     let admin = message.guild.roles.get("549627288371855390");
@@ -44,7 +44,7 @@ client.on("message", async message => {
     if(!checkMember){
       return message.reply("Cet utilisateur est introuvable ou impossible à checker.");
     }
-    
+
     const guildMember = message.member;
     checkMember.addRole('549684639099387904');
     checkMember.addRole('549977095124680704');
